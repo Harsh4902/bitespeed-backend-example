@@ -10,7 +10,7 @@
     </parent>
     <groupId>org.example</groupId>
     <artifactId>bitespeed-backend-example</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0</version>
     <name>bitespeed-backend-example</name>
     <description>bitespeed-backend-example</description>
     <url/>
