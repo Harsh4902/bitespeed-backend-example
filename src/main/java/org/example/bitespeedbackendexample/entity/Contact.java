@@ -84,4 +84,18 @@ public class Contact {
   public void setDeletedAt(LocalDateTime deletedAt) {
     this.deletedAt = deletedAt;
   }
+
+  @Override
+  public String toString() {
+    return "Contact{" +
+      "ID=" + ID +
+      ", phoneNumber='" + phoneNumber + '\'' +
+      ", email='" + email + '\'' +
+      ", linkedId=" + linkedId +
+      ", linkPrecedence=" + linkPrecedence +
+      ", createdAt=" + createdAt +
+      ", updatedAt=" + updatedAt +
+      ", deletedAt=" + deletedAt +
+      '}';
+  }
 }

@@ -43,6 +43,16 @@ public class ContactServiceImpl implements ContactService{
         .orElseThrow();
     }
 
+    // Demote other primaries to secondary
+    for (Contact contact : allRelated) {
+      if (!contact.getID().equals(primary.getID()) && contact.getLinkPrecedence() == LinkPrecedence.PRIMARY) {
+        contact.setLinkPrecedence(LinkPrecedence.SECONDARY);
+        contact.setLinkedId(primary.getID());
+        contact.setUpdatedAt(LocalDateTime.now());
+        contactRepository.save(contact);
+      }
+    }
+
     boolean emailExists = email != null && allRelated.stream()
       .anyMatch(c -> email.equals(c.getEmail()));
 
