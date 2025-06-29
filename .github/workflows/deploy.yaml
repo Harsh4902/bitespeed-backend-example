@@ -1,5 +1,5 @@
 # deploy app by using workflow dispatch
-name: deploy doctor-agent app
+name: deploy app
 
 on:
   workflow_dispatch:
@@ -25,4 +25,4 @@ jobs:
           script: |
             sudo docker stop ${{vars.CONTAINER_NAME}}
             sudo docker rm ${{vars.CONTAINER_NAME}}
-            sudo docker run --name ${{vars.CONTAINER_NAME}} -p ${{vars.CONTAINER_PORT}}:${{vars.CONTAINER_PORT}} -d --pull always ${{ secrets.CR_HOST }}/${{ vars.IMAGE_NAME }}:latest
+            sudo docker run --restart=always --name ${{vars.CONTAINER_NAME}} -p ${{vars.CONTAINER_PORT}}:${{vars.CONTAINER_PORT}} -d --pull always ${{ secrets.CR_HOST }}/${{ vars.IMAGE_NAME }}:latest
